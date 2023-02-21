@@ -18,6 +18,17 @@ const LoginPage = ({navigation}) => {
                 console.log("error",error)
             }
         };
+        const validation = () =>{
+            var username = email
+            var usernamepattern = /^[a-zA-Z@a-z.com]{8,20}$/;
+            if (usernamepattern.test(username)){
+                pressSubmit()
+            }
+            else {
+            Alert.alert("wrong validation")
+            }
+                
+        }
     
         useEffect(() => {
             getUserData();
@@ -40,7 +51,7 @@ const LoginPage = ({navigation}) => {
                                         });
                 
             }
-            else {ß
+            else {
                 Alert.alert("the password or username is wrong");
             }
         }
@@ -73,6 +84,7 @@ const LoginPage = ({navigation}) => {
         language={language}
         isFormValid={isFormValid}
         handleDonthaveaccount={handleDonthaveaccount}
+        validation={validation}
         />
     )}
 export default LoginPage

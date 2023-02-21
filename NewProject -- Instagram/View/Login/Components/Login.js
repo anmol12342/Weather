@@ -37,7 +37,7 @@ const Login = (props) => {
             },
          ]}
          disabled= {!props.isFormValid}
-         onPress={() => props.pressSubmit()}>
+         onPress={() => props.validation()}>
             <Text style={{color:'white'}}>Log in</Text>
         </TouchableOpacity>
         <Text style={styles.primaryText}>
