@@ -11,12 +11,8 @@ const homeScreen = () => {
     const [city, setCity] = useState("Delhi")
     const [lon, setLong] = useState()
     const [lat, setLat] = useState()
-    const [forcast, setForcast] = useState("")
+    const [forcast, setForcast] = useState()
 
-    const Traverse= () => {
-
-    }
- 
     const enableSearch = () => {
       SetenableInput(true)
     }
@@ -43,7 +39,6 @@ const homeScreen = () => {
             temp:  data.main.temp,
             city:  data.name,
             feel:  data.main.feels_like,
-            press: data.main.pressure,
         })
         // console.log(data.weather[0].description)
         // console.log(data.main.temp)
@@ -51,9 +46,11 @@ const homeScreen = () => {
         // console.log(data.main.humidity)
         // console.log(data.main.pressure)
         // console.log(data)
-            let forcasturl= `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${openWeatherKey}`
+            let forcasturl= `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${openWeatherKey}`
             let forcastResponse = await fetch(forcasturl);
             const forcastData = await forcastResponse.json();
+            // setForcast(forcastData)
+            // console.log(forcast.list[0]);
             // setForcast(forcastData);
             // setForcast([...forcast, Traverse()])
             // console.log(forcast)

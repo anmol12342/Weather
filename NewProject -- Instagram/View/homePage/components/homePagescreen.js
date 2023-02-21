@@ -26,20 +26,26 @@ const HomePagescreen = (props) => {
         source={require('../../../../assets/clouds.jpg')} 
         resizeMode="cover"
         style={styles.imageStyle}>
-        <Text style={styles.weatherText}>{props.weather.temp}</Text> 
+        <Text style={styles.weatherText}>{props.weather.temp}°C</Text> 
         <Text style={styles.weatherconatinerText}>{props.weather.descp}</Text>
-        <Text style={styles.weatherconatinerText}>Feels like {props.weather.feel}</Text>
+        <Text style={styles.weatherconatinerText}>Feels like {props.weather.feel}°C</Text>
         <Text style={styles.weatherconatinerText}> Day 27°C .Night 14°C</Text>
       </ImageBackground>
       </View>
       <View style={styles.forecastContainer}>
         <Text style={styles.forcastText}>Hourly forecast</Text>
-        {/* <FlatList
+        <FlatList
         horizontal
-        data={props.forcast.hourly.splice(0,24)}
+        data={props.forcast?.list}
         keyExtractor={item => item.dt_text}
         renderItem={({item}) => {
-          /> */}
+          return(
+            <View style={styles.cardStyle}>
+              <Text>This is test</Text>
+            </View>
+          );
+        }} 
+           />
         <Button
           //onPress={console.log("pressed")}
           title="See Details"
@@ -49,31 +55,21 @@ const HomePagescreen = (props) => {
         <Text>No data available at this time</Text>
       </View>
       <View style={styles.bottomContainer}>
-      <TouchableOpacity>
       <Image
         source={require('../../../../assets/clock-1.jpeg')} 
         style={styles.bottomContainer1ImageStyle}/>
-        </TouchableOpacity>
-        <TouchableOpacity>
       <Image
         source={require('../../../../assets/calendar-2.png')} 
         style={styles.bottomContainer2ImageStyle}/>
-        </TouchableOpacity>
-        <TouchableOpacity>
       <Image
         source={require('../../../../assets/3.png')} 
         style={styles.bottomContainer2ImageStyle}/>
-      </TouchableOpacity>
-      <TouchableOpacity>
       <Image
         source={require('../../../../assets/4.png')} 
         style={styles.bottomContainer2ImageStyle}/>
-        </TouchableOpacity>
-      <TouchableOpacity>
       <Image
         source={require('../../../../assets/5.webp')} 
         style={styles.bottomContainer2ImageStyle}/>
-        </TouchableOpacity>
       </View>
       </View>
       </SafeAreaView>
@@ -177,7 +173,10 @@ const styles = StyleSheet.create({
     height:37,
     marginHorizontal:25
   },
-  card:{
+  cardStyle:{
+    height:100,
+    width: 50,
+    backgroundColor: 'black'
     
 }
 
